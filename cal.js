@@ -22,7 +22,7 @@ Calendar.prototype.getArray = function() {
 	if (this.month == 1 && ((this.year % 4 == 0 && this.year % 100 != 0) || this.year % 400 == 0)) {
 		monthLength = 29;
 	}
-	var arr = [], labels = [], day = 1;
+	var arr = [], day = 1;
 	for (var i = 0; i < 9; i++) {
 		var week = [];
 		for (var j = 0; j <= 6; j++) { 
