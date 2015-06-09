@@ -1,0 +1,15 @@
+{
+  "name": "ncal",
+  "version": "0.1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DanielFGray",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "blessed": "^0.1.60",
+    "blessed-contrib": "^2.0.5"
+  }
+}
