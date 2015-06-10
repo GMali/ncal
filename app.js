@@ -1,9 +1,8 @@
 var blessed = require('blessed');
-var contrib = require('blessed-contrib');
 var cal = require('./cal');
 
 var screen = blessed.screen({
-  autoPadding: false,
+  autoPadding: true,
   smartCSR: true
 });
 
@@ -11,28 +10,29 @@ screen.title = 'ncal';
 
 var mycal = new cal();
 
-var table = new contrib.table({
-  border:        {type: "line"},
-  fg:            'brightwhite',
-  selectedBg:    'black',
-  selectedFg:    'brightwhite',
-  // width:         '100%',
-  // height:        '100%',
-  columnSpacing: 2,
-  columnWidth:   [3,3,3,3,3,3,3],
-  label:         mycal.getTitle(),
-  keys:          true,
-  interactive:   true,
+var table = new blessed.table({
+  // width:           screen.width,
+  // height:          screen.height,
+  width:           29,
+  height:          13,
+  // padding:         1,
+  // pad:             0,
+  noCellBorders:   true,
+  // fillCellBorders: false,
+  border:          'line',
+  shadow:          true,
+  label:           mycal.getTitle(),
+  style: {
+    border: {
+      fg: 'brightblack'
+    },
+    header: {},
+  },
 });
+
+table.setData(mycal.getArray());
 
 screen.append(table);
-
-table.setData({
-  headers:       ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-  data:          mycal.getArray(),
-});
-
-table.focus();
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
     return process.exit(0);

@@ -12,7 +12,7 @@ function Calendar(month, year) {
 }
 
 Calendar.prototype.getTitle = function() {
-	return monthsLabels[this.month] + ' ' + this.year;
+	return  ' ' + monthsLabels[this.month] + ' ' + this.year + ' ';
 };
 
 Calendar.prototype.getArray = function() {
@@ -22,21 +22,18 @@ Calendar.prototype.getArray = function() {
 	if (this.month == 1 && ((this.year % 4 == 0 && this.year % 100 != 0) || this.year % 400 == 0)) {
 		monthLength = 29;
 	}
-	var arr = [], day = 1;
-	for (var i = 0; i < 9; i++) {
+	var arr = [['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']];
+	for (var i = 0, day = 1; day <= monthLength; i++) {
 		var week = [];
 		for (var j = 0; j <= 6; j++) { 
+			var label = '   ';
 			if (day <= monthLength && (i > 0 || j >= startingDay)) {
-				week.push((day < 10 ? ' ' : '') + day.toString());
+				label = (day < 10 ? ' '+day+' ' : day+' ');
 				day++;
-			} else {
-				week.push('');
 			}
+			week.push(label);
 		}
 		arr.push(week);
-		if (day > monthLength) {
-			break;
-		}
 	}
 	return arr;
 }
