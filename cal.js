@@ -26,12 +26,15 @@ Calendar.prototype.getArray = function() {
 	for (var i = 0, day = 1; day <= monthLength; i++) {
 		var week = [];
 		for (var j = 0; j <= 6; j++) { 
-			var label = '   ';
+			var label = '  ';
 			if (day <= monthLength && (i > 0 || j >= startingDay)) {
-				label = (day < 10 ? ' '+day+' ' : day+' ');
+				label = day;
+				if(day == currentDate.getDate() && this.month == currentDate.getMonth())
+					label = '{underline}'+label+'{/underline}'
+				label = (day < 10 ? ' '+label : label);
 				day++;
 			}
-			week.push(label);
+			week.push(label + ' ');
 		}
 		arr.push(week);
 	}

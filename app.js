@@ -20,7 +20,7 @@ var table = new blessed.table({
   noCellBorders:   true,
   // fillCellBorders: false,
   border:          'line',
-  shadow:          true,
+  tags:            true,
   label:           mycal.getTitle(),
   style: {
     border: {
