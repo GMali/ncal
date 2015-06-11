@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var blessed = require('blessed');
 var cal = require('./cal');
 
