@@ -16,5 +16,5 @@ You can add a symlink somewhere in your $PATH for easier access
 
 ## Usage
 
-`down`, `left`, `j`, `h` will go backwards a month
-<br/>`up`, `right`, `k`, `l` will go forwards a month
+`down`, `left`, `j`, or `h` will go backwards a month
+<br/>`up`, `right`, `k`, or `l` will go forwards a month
