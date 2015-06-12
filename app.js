@@ -53,6 +53,11 @@ screen.key(['up','right','k','l'], function(ch, key) {
 	doTable();
 });
 
+screen.key(['0'], function(ch, key) {
+	mycal = new cal();
+	doTable();
+});
+
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
 	return process.exit(0);
 });
