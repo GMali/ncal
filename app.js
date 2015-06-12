@@ -26,9 +26,9 @@ var table = new blessed.table({
 
 screen.append(table);
 
-function doTable(cal) {
-	table.setData(cal.getArray());
-	table.setLabel(cal.getTitle());
+function doTable() {
+	table.setData(mycal.getArray());
+	table.setLabel(mycal.getTitle());
 	screen.append(table);
 	screen.render();
 }
@@ -40,7 +40,7 @@ screen.key(['down','left','j','h'], function(ch, key) {
 		year--;
 	}
 	mycal = new cal(prevmonth, year);
-	doTable(mycal);
+	doTable();
 });
 
 screen.key(['up','right','k','l'], function(ch, key) {
@@ -50,11 +50,11 @@ screen.key(['up','right','k','l'], function(ch, key) {
 		year++;
 	}
 	mycal = new cal(nextmonth, year);
-	doTable(mycal);
+	doTable();
 });
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
 	return process.exit(0);
 });
 
-doTable(mycal);
+doTable();
