@@ -18,4 +18,5 @@ You can add a symlink somewhere in your $PATH for easier access
 
 `down`, `left`, `j`, or `h` will go backwards a month
 <br/>`up`, `right`, `k`, or `l` will go forwards a month
+<br/>`0` will reset the calendar at the current month
 <br/>`q`, `Ctrl+c`, or `esc` will quit
