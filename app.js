@@ -27,7 +27,7 @@ var table = new blessed.table({
 screen.append(table);
 
 function doTable() {
-	table.setData(mycal.getArray());
+	table.setData(mycal.getMonthData());
 	table.setLabel(mycal.getTitle());
 	screen.append(table);
 	screen.render();
@@ -36,7 +36,7 @@ function doTable() {
 screen.key(['down','left','j','h'], function(ch, key) {
 	var prevmonth = mycal.month -1, year = mycal.year;
 	if (prevmonth < 0 ) {
-		prevmonth = 11; 
+		prevmonth = 11;
 		year--;
 	}
 	mycal = new cal(prevmonth, year);
@@ -46,7 +46,7 @@ screen.key(['down','left','j','h'], function(ch, key) {
 screen.key(['up','right','k','l'], function(ch, key) {
 	var nextmonth = mycal.month +1, year = mycal.year;
 	if (nextmonth > 11 ) {
-		nextmonth = 0; 
+		nextmonth = 0;
 		year++;
 	}
 	mycal = new cal(nextmonth, year);

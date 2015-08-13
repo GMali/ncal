@@ -29,12 +29,12 @@ Calendar.prototype.getTitle = function() {
     return ' ' + MONTHS[this.month].label + ' ' + this.year + ' ';
 };
 
-Calendar.prototype.getArray = function() {
+Calendar.prototype.getMonthData = function() {
     var firstDay = new Date(this.year, this.month, 1);
     var startingDay = firstDay.getDay();
     var monthLength = MONTHS[this.month].days;
 
-    var arr = [['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']];
+    var monthData = [['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']];
 
     for (var i = 0, day = 1; day <= monthLength; i++) {
 
@@ -47,10 +47,10 @@ Calendar.prototype.getArray = function() {
             return label;
         }.bind(this));
 
-        arr.push(week);
+        monthData.push(week);
     }
 
-    return arr;
+    return monthData;
 }
 
 Calendar.prototype.isLeapYear = function() {
